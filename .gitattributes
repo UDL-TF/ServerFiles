@@ -1,0 +1,2 @@
+# Track any folder named "maps" with Git LFS
+**/maps/** filter=lfs diff=lfs merge=lfs -text
