@@ -56,7 +56,6 @@ jobs:
             fi
 
             bzip2 -ck "$map_file" > "$target_path"
-            printf '%s\0' "${target_path#./}" >> "$added_paths_file"
             echo "Created $target_path"
 
             file_size=$(stat -c%s "$target_path")
@@ -71,6 +70,8 @@ jobs:
               done < <(find "$parts_dir" -type f -print0 | sort -z)
               part_count=$(find "$parts_dir" -type f | wc -l | tr -d ' ')
               echo "Split $rel_path.bz2 into $part_count part(s) under $parts_dir"
+            else
+              printf '%s\0' "${target_path#./}" >> "$added_paths_file"
             fi
           done
 
