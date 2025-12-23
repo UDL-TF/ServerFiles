@@ -1,0 +1,29 @@
+// Advertisements 2.1
+// by Tsunami
+//
+// Types
+// -----
+// center: Center message
+// chat: Chat message
+// hint: Hint message
+// menu: Menu message
+// top: Top message
+//
+// Flags (optional)
+// -----
+// Accepts flags of admins that will not see the advertisement.
+// When omitted everyone will see the advertisement.
+// When left empty only admins will see the advertisement.
+//"chat"			"[{#95F3E3}A{#08C4CD}D{#ffffff}] Feel competitive? You can fight for your '{#08C4CD}!place{#ffffff}' in the '{#08C4CD}!top10{#ffffff}' //list or get the highest '{#08C4CD}!tc{#ffffff}' (rocket speed) in our '{#08C4CD}!ts{#ffffff}' (Top speed) list." 
+
+"Advertisements"
+{
+    "1"
+    {
+        "chat"          "[{#95F3E3}A{#08C4CD}D{#ffffff}] Join our discord server at: {#08C4CD}discord.dodgeball.tf"
+    }
+    "2"
+    {
+        "chat"          "[{#95F3E3}A{#08C4CD}D{#ffffff}] Type {#ffffff}'{#08C4CD}!help{#ffffff}' for a list of useful commands, you can also visit our discord at: {#08C4CD}discord.dodgeball.tf"
+    }
+}
