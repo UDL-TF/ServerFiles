@@ -1,2 +1,2 @@
-# Track any folder named "maps" with Git LFS
-**/maps/** filter=lfs diff=lfs merge=lfs -text
+# Track only BSP files inside maps folders with Git LFS so auxiliary assets stay in Git
+**/maps/**/*.bsp filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,81 @@
+name: Build FastDL Map Bundle
+
+on:
+  push:
+    paths:
+      - "**/maps/**/*.bsp"
+  workflow_dispatch:
+
+env:
+  OUTPUT_DIR: fastdl_bz2
+
+jobs:
+  compress-maps:
+    name: Compress maps to BZip2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Compress map files
+        id: compress
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf "$OUTPUT_DIR"
+          mkdir -p "$OUTPUT_DIR"
+
+          map_count=$(find . -type f -path '*/maps/*.bsp' ! -path "./$OUTPUT_DIR/*" | wc -l | tr -d ' ')
+
+          if [ "$map_count" = "0" ]; then
+            echo "No map files (*.bsp) found under any maps directory."
+            echo "has_maps=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          find . -type f -path '*/maps/*.bsp' ! -path "./$OUTPUT_DIR/*" -print0 | while IFS= read -r -d '' map_file; do
+            rel_path="${map_file#./}"
+            target_path="$OUTPUT_DIR/$rel_path.bz2"
+            mkdir -p "$(dirname "$target_path")"
+            bzip2 -ck "$map_file" > "$target_path"
+            echo "Created $target_path"
+          done
+
+          echo "has_maps=true" >> "$GITHUB_OUTPUT"
+
+      - name: Detect FastDL changes
+        id: diff
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git status --short -- "$OUTPUT_DIR" | grep -q .; then
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Configure git user
+        if: steps.diff.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit FastDL bundle
+        if: steps.diff.outputs.has_changes == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add "$OUTPUT_DIR"
+          git commit -m "chore: update FastDL map bundle"
+
+      - name: Push FastDL bundle
+        if: steps.diff.outputs.has_changes == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          branch_ref="${GITHUB_REF#refs/heads/}"
+          git push origin "HEAD:${branch_ref}"
