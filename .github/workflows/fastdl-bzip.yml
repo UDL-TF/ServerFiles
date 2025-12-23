@@ -6,6 +6,9 @@ on:
       - "**/maps/**/*.bsp"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 env:
   OUTPUT_DIR: fastdl_bz2
   SPLIT_THRESHOLD_BYTES: 26214400 # 25 MiB
@@ -117,7 +120,9 @@ jobs:
         if: steps.diff.outputs.has_changes == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
           branch_ref="${GITHUB_REF#refs/heads/}"
-          git push origin "HEAD:${branch_ref}"
+          git push "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPO}.git" "HEAD:${branch_ref}"
