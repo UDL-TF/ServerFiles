@@ -8,6 +8,8 @@ on:
 
 env:
   OUTPUT_DIR: fastdl_bz2
+  SPLIT_THRESHOLD_BYTES: 26214400 # 25 MiB
+  SPLIT_CHUNK_SIZE: 20m
 
 jobs:
   compress-maps:
@@ -27,6 +29,8 @@ jobs:
           set -euo pipefail
           rm -rf "$OUTPUT_DIR"
           mkdir -p "$OUTPUT_DIR"
+          split_manifest="$OUTPUT_DIR/SPLIT_MANIFEST.txt"
+          rm -f "$split_manifest"
 
           map_count=$(find . -type f -path '*/maps/*.bsp' ! -path "./$OUTPUT_DIR/*" | wc -l | tr -d ' ')
 
@@ -42,7 +46,45 @@ jobs:
             mkdir -p "$(dirname "$target_path")"
             bzip2 -ck "$map_file" > "$target_path"
             echo "Created $target_path"
+
+            file_size=$(stat -c%s "$target_path")
+            if [ "$file_size" -gt "$SPLIT_THRESHOLD_BYTES" ]; then
+              echo "Splitting $target_path (size $file_size bytes) into <= $SPLIT_CHUNK_SIZE chunks"
+              split -b "$SPLIT_CHUNK_SIZE" -d -a 3 "$target_path" "$target_path.part."
+              rm "$target_path"
+
+              if [ ! -f "$split_manifest" ]; then
+                {
+                  echo "Some generated FastDL archives exceeded 25 MiB and were split into numbered parts."
+                  echo "Reassemble each entry with:"
+                  echo "  cat <listed parts in order> > <original .bz2 path>"
+                  echo
+                  echo "Entries:"
+                } > "$split_manifest"
+              fi
+
+              part_dir="$(dirname "$target_path")"
+              part_base="$(basename "$target_path")"
+              parts=()
+              while IFS= read -r -d '' part_file; do
+                parts+=("$part_file")
+              done < <(find "$part_dir" -maxdepth 1 -type f -name "$part_base.part.*" -print0 | sort -z)
+
+              echo "Original: $rel_path.bz2" >> "$split_manifest"
+              echo "Parts:" >> "$split_manifest"
+              for part_file in "${parts[@]}"; do
+                part_rel="${part_file#./}"
+                echo "  - $part_rel" >> "$split_manifest"
+              done
+              echo "Reassemble: cat the parts above > $rel_path.bz2" >> "$split_manifest"
+              echo >> "$split_manifest"
+              echo "Split $rel_path.bz2 into ${#parts[@]} part(s)."
+            fi
           done
+
+          if [ -f "$split_manifest" ] && [ ! -s "$split_manifest" ]; then
+            rm -f "$split_manifest"
+          fi
 
           echo "has_maps=true" >> "$GITHUB_OUTPUT"
 
