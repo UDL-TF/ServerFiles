@@ -10,7 +10,6 @@ permissions:
   contents: write
 
 env:
-  OUTPUT_DIR: fastdl_bz2
   SPLIT_THRESHOLD_BYTES: 26214400 # 25 MiB
   SPLIT_CHUNK_SIZE: 20m
 
@@ -30,94 +29,86 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf "$OUTPUT_DIR"
-          mkdir -p "$OUTPUT_DIR"
-          split_manifest="$OUTPUT_DIR/SPLIT_MANIFEST.txt"
-          rm -f "$split_manifest"
 
-          map_count=$(find . -type f -path '*/maps/*.bsp' ! -path "./$OUTPUT_DIR/*" | wc -l | tr -d ' ')
+          added_paths_file="$GITHUB_WORKSPACE/.fastdl_new_paths"
+          : > "$added_paths_file"
 
-          if [ "$map_count" = "0" ]; then
+          map_files=()
+          while IFS= read -r -d '' map_file; do
+            map_files+=("$map_file")
+          done < <(find . -type f -path '*/maps/*.bsp' -print0)
+
+          if [ "${#map_files[@]}" -eq 0 ]; then
             echo "No map files (*.bsp) found under any maps directory."
-            echo "has_maps=false" >> "$GITHUB_OUTPUT"
+            echo "has_new_outputs=false" >> "$GITHUB_OUTPUT"
+            rm -f "$added_paths_file"
             exit 0
           fi
 
-          find . -type f -path '*/maps/*.bsp' ! -path "./$OUTPUT_DIR/*" -print0 | while IFS= read -r -d '' map_file; do
+          for map_file in "${map_files[@]}"; do
             rel_path="${map_file#./}"
-            target_path="$OUTPUT_DIR/$rel_path.bz2"
-            mkdir -p "$(dirname "$target_path")"
+            target_path="${map_file}.bz2"
+            parts_dir="$target_path.parts"
+
+            if [ -f "$target_path" ] || [ -d "$parts_dir" ]; then
+              echo "Skipping $rel_path because FastDL output already exists."
+              continue
+            fi
+
             bzip2 -ck "$map_file" > "$target_path"
+            printf '%s\0' "${target_path#./}" >> "$added_paths_file"
             echo "Created $target_path"
 
             file_size=$(stat -c%s "$target_path")
             if [ "$file_size" -gt "$SPLIT_THRESHOLD_BYTES" ]; then
+              mkdir -p "$parts_dir"
+              base_name="$(basename "$target_path")"
               echo "Splitting $target_path (size $file_size bytes) into <= $SPLIT_CHUNK_SIZE chunks"
-              split -b "$SPLIT_CHUNK_SIZE" -d -a 3 "$target_path" "$target_path.part."
+              split -b "$SPLIT_CHUNK_SIZE" -d -a 3 "$target_path" "$parts_dir/$base_name.part."
               rm "$target_path"
-
-              if [ ! -f "$split_manifest" ]; then
-                {
-                  echo "Some generated FastDL archives exceeded 25 MiB and were split into numbered parts."
-                  echo "Reassemble each entry with:"
-                  echo "  cat <listed parts in order> > <original .bz2 path>"
-                  echo
-                  echo "Entries:"
-                } > "$split_manifest"
-              fi
-
-              part_dir="$(dirname "$target_path")"
-              part_base="$(basename "$target_path")"
-              parts=()
               while IFS= read -r -d '' part_file; do
-                parts+=("$part_file")
-              done < <(find "$part_dir" -maxdepth 1 -type f -name "$part_base.part.*" -print0 | sort -z)
-
-              echo "Original: $rel_path.bz2" >> "$split_manifest"
-              echo "Parts:" >> "$split_manifest"
-              for part_file in "${parts[@]}"; do
-                part_rel="${part_file#./}"
-                echo "  - $part_rel" >> "$split_manifest"
-              done
-              echo "Reassemble: cat the parts above > $rel_path.bz2" >> "$split_manifest"
-              echo >> "$split_manifest"
-              echo "Split $rel_path.bz2 into ${#parts[@]} part(s)."
+                printf '%s\0' "${part_file#./}" >> "$added_paths_file"
+              done < <(find "$parts_dir" -type f -print0 | sort -z)
+              part_count=$(find "$parts_dir" -type f | wc -l | tr -d ' ')
+              echo "Split $rel_path.bz2 into $part_count part(s) under $parts_dir"
             fi
           done
 
-          if [ -f "$split_manifest" ] && [ ! -s "$split_manifest" ]; then
-            rm -f "$split_manifest"
+          if [ -s "$added_paths_file" ]; then
+            echo "has_new_outputs=true" >> "$GITHUB_OUTPUT"
+            echo "paths_file=$added_paths_file" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_new_outputs=false" >> "$GITHUB_OUTPUT"
+            rm -f "$added_paths_file"
           fi
 
-          echo "has_maps=true" >> "$GITHUB_OUTPUT"
-
-      - name: Detect FastDL changes
-        id: diff
-        shell: bash
+      - name: Stage FastDL outputs
+        if: steps.compress.outputs.has_new_outputs == 'true'
         run: |
           set -euo pipefail
-          if git status --short -- "$OUTPUT_DIR" | grep -q .; then
-            echo "has_changes=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          paths_file="${{ steps.compress.outputs.paths_file }}"
+          if [ -z "$paths_file" ] || [ ! -f "$paths_file" ]; then
+            echo "Expected list of FastDL outputs was not generated" >&2
+            exit 1
           fi
+          xargs -0 git add < "$paths_file"
+          rm -f "$paths_file"
 
       - name: Configure git user
-        if: steps.diff.outputs.has_changes == 'true'
+        if: steps.compress.outputs.has_new_outputs == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Commit FastDL bundle
-        if: steps.diff.outputs.has_changes == 'true'
+        if: steps.compress.outputs.has_new_outputs == 'true'
         shell: bash
         run: |
           set -euo pipefail
-          git add "$OUTPUT_DIR"
           git commit -m "chore: update FastDL map bundle"
 
       - name: Push FastDL bundle
-        if: steps.diff.outputs.has_changes == 'true'
+        if: steps.compress.outputs.has_new_outputs == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_ACTOR: ${{ github.actor }}
