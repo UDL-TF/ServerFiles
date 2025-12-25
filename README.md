@@ -313,3 +313,7 @@ See [LICENSE](LICENSE) file for details.
 - [TF2 Attributes](https://github.com/FlaminSarge/tf2attributes) - Plugin for modifying TF2 item attributes
 - [SteamWorks](https://github.com/KyleSanderson/SteamWorks) - Extension providing access to Steam API
 - [SourceTV Manager](https://github.com/peace-maker/sourcetvmanager) - Enhanced SourceTV control and management
+- [SM-Env](https://github.com/CrazyHackGUT/sm-env) - Environment extension for SourceMod
+- [Connect](https://github.com/asherkin/connect) - Connection management extension
+- [WebCon & Conplex](https://github.com/asherkin/webcon) - Conplex and WebCon extension for web-based server control
+- [JSON Extenstion](https://github.com/ProjectSky/sm-ext-json) - Used for more complex JSON. But for more native only we use https://github.com/clugg/sm-json
