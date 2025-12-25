@@ -40,15 +40,6 @@ graph TB
         CFG --> SMCFG[sourcemod/*.cfg]
     end
     
-    subgraph "Game Mode Structure"
-        GAMEMODES --> GM_BASE[base/]
-        GAMEMODES --> GM_VARIANTS[Difficulty variants]
-        GM_BASE --> GM_MAPS[maps/]
-        GM_BASE --> GM_CFG[cfg/]
-        GM_BASE --> GM_MATERIALS[materials/]
-        GM_BASE --> GM_PLUGINS[addons/sourcemod/]
-    end
-    
     subgraph "External Systems"
         FASTDL[FastDL Server<br/>fastdl.udl.tf]
         GAMESERVERS[TF2 Game Servers]
@@ -108,8 +99,8 @@ stateDiagram-v2
     
     Original --> Checking: Check file size
     
-    Checking --> SmallFile: Size < 100MB
-    Checking --> LargeFile: Size >= 100MB
+    Checking --> SmallFile: Size < 25MB
+    Checking --> LargeFile: Size >= 25MB
     
     SmallFile --> Committed: Commit .bsp directly
     
@@ -122,12 +113,12 @@ stateDiagram-v2
     FastDL --> [*]: Available for download
     
     note right of LargeFile
-        GitHub has 100MB limit
+        GitHub has 25MB limit
         Large maps need splitting
     end note
     
     note right of PartsCreated
-        Each part < 100MB
+        Each part < 25MB
         Named sequentially:
         .part.000, .part.001, etc.
     end note
@@ -145,61 +136,6 @@ stateDiagram-v2
 - **Comprehensive Logging**: Structured logging configuration (log.cfg) for server events, player actions, and plugin activities, essential for debugging and server administration
 - **Translation Support**: Multi-language translation files for plugins (hugkiss.phrases.txt, respawn.phrases.txt, sbpp_*.phrases.txt) enabling internationalization of server messages
 - **Extension Ecosystem**: Collection of SourceMod extensions and gamedata files (connect.games.txt, tf2.attributes.txt, sourcetvmanager.games.txt) providing low-level functionality for advanced plugin features
-
-## Prerequisites
-
-- Team Fortress 2 Dedicated Server (srcds)
-- SourceMod (latest stable version recommended)
-- MetaMod:Source (dependency for SourceMod)
-- FastDL server or CDN for hosting downloadable content
-- SourceBans++ database (for ban management plugins)
-
-## Installation
-
-### Server Deployment
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/UDL-TF/ServerFiles.git
-   cd ServerFiles
-   ```
-
-2. **Deploy base files to your TF2 server**:
-   ```bash
-   # Copy base configurations (required for all servers)
-   cp -r base/addons/* /path/to/tf2server/tf/addons/
-   cp -r base/cfg/* /path/to/tf2server/tf/cfg/
-   ```
-
-3. **Deploy game mode-specific files**:
-   ```bash
-   # Copy game mode base files (maps, configs, materials, etc.)
-   cp -r <gamemode>/base/* /path/to/tf2server/tf/
-   
-   # If the game mode has difficulty variants, choose one:
-   cp -r <gamemode>/<difficulty>/addons/* /path/to/tf2server/tf/addons/
-   ```
-
-4. **Handle large map files** (if .bz2.parts exist):
-   ```bash
-   # Reassemble split map files
-   cd /path/to/tf2server/tf/maps
-   for dir in *.bsp.bz2.parts; do
-       mapname="${dir%.bsp.bz2.parts}"
-       cat "$dir"/*.part.* > "${mapname}.bsp.bz2"
-       bunzip2 "${mapname}.bsp.bz2"
-   done
-   ```
-
-5. **Configure server launch parameters**:
-   ```bash
-   ./srcds_run -game tf +map <initial_map> +maxplayers 24 +exec server.cfg
-   ```
-
-6. **Upload maps to FastDL server**:
-   - Compress maps: `bzip2 -k mapfile.bsp`
-   - Upload .bsp.bz2 files to your FastDL server matching the path structure
-   - Ensure FastDL URL in server.cfg matches your CDN
 
 ## Configuration
 
@@ -261,14 +197,14 @@ Maps in this repository are organized by game mode under their respective direct
 
 #### GitHub Large File Handling
 
-GitHub has a 100MB file size limit. Many custom TF2 maps exceed this limit, so this repository uses a chunking system:
+GitHub has a 25MB file size limit. Many custom TF2 maps exceed this limit, so this repository uses a chunking system:
 
 ```
 mapfile.bsp                        # Actual map file (too large for GitHub)
 mapfile.bsp.bz2.parts/             # Directory containing split parts
-├── mapfile.bsp.bz2.part.000       # Part 1 (< 100MB)
-├── mapfile.bsp.bz2.part.001       # Part 2 (< 100MB)
-├── mapfile.bsp.bz2.part.002       # Part 3 (< 100MB)
+├── mapfile.bsp.bz2.part.000       # Part 1 (< 25MB)
+├── mapfile.bsp.bz2.part.001       # Part 2 (< 25MB)
+├── mapfile.bsp.bz2.part.002       # Part 3 (< 25MB)
 └── ...                             # Additional parts as needed
 ```
 
@@ -277,9 +213,9 @@ mapfile.bsp.bz2.parts/             # Directory containing split parts
 # Compress the map
 bzip2 -k mapfile.bsp  # Creates mapfile.bsp.bz2
 
-# Split into 95MB chunks (safely under 100MB limit)
+# Split into 20MB chunks (safely under 25MB limit)
 mkdir mapfile.bsp.bz2.parts
-split -b 95M mapfile.bsp.bz2 mapfile.bsp.bz2.parts/mapfile.bsp.bz2.part.
+split -b 20M mapfile.bsp.bz2 mapfile.bsp.bz2.parts/mapfile.bsp.bz2.part.
 ```
 
 **Reassembling split map files**:
