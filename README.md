@@ -69,11 +69,11 @@ graph TB
     BHOP -.->|deployed to| GAMESERVERS
     DB -.->|deployed to| GAMESERVERS
     
-    style BASE fill:#e1f5ff
-    style BHOP fill:#fff4e1
-    style DB fill:#ffe1e1
-    style PLUGINS fill:#d4edda
-    style FASTDL fill:#f8d7da
+    style BASE fill:#1e3a5f,stroke:#4a90e2,color:#ffffff
+    style BHOP fill:#5f3e1e,stroke:#e2a04a,color:#ffffff
+    style DB fill:#5f1e1e,stroke:#e24a4a,color:#ffffff
+    style PLUGINS fill:#1e5f3e,stroke:#4ae27a,color:#ffffff
+    style FASTDL fill:#5f1e3e,stroke:#e24a7a,color:#ffffff
 ```
 
 ## How It Works
@@ -375,36 +375,6 @@ cat mapfile.bsp.bz2.parts/*.part.* > mapfile.bsp.bz2
 # Decompress
 bunzip2 mapfile.bsp.bz2  # Creates mapfile.bsp
 ```
-
-#### FastDL Workflow
-
-When a client connects to the server and needs to download a map:
-
-```mermaid
-sequenceDiagram
-    autonumber
-    participant Client as TF2 Client
-    participant Server as TF2 Server
-    participant FastDL as FastDL Server<br/>(fastdl.udl.tf)
-    
-    Client->>Server: Connect
-    Server->>Client: Send map name (e.g., tfdb_octagon_udl_v4)
-    
-    alt Client has map
-        Client->>Server: Proceed to loading
-    else Client missing map
-        Client->>Client: Check sv_downloadurl
-        Client->>FastDL: GET /maps/tfdb_octagon_udl_v4.bsp.bz2
-        FastDL->>Client: Return compressed map
-        Client->>Client: Decompress .bsp.bz2 to .bsp
-        Client->>Client: Save to tf/download/maps/
-        Client->>Server: Ready to load map
-    end
-    
-    Server->>Client: Load map
-```
-
-The FastDL server mirrors the maps directory structure but serves pre-compressed .bsp.bz2 files. The client automatically decompresses them upon download, significantly reducing download time and bandwidth usage.
 
 #### Map Deployment Best Practices
 
