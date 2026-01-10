@@ -468,4 +468,25 @@
   {
     "#format"  "{1:i}"
     "en"  "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Changed spawners rocket class chances to {darkorange}{1}{default}."
+  }
+  "PVB_Mode_Disabled
+  {
+	"en"        "[{#95F3E3}B{#08C4CD}O{#27939D}T{#ffffff}] {blue}Player{orange} vs. {red}Bot{default} mode {red}can't be enabled{default}!"
+  }
+  "PVB_Enable"
+  {
+	"en"        "[{#95F3E3}B{#08C4CD}O{#27939D}T{#ffffff}] {blue}Player{orange} vs. {red}Bot{default} mode {community}enabled{default}!"
+  }
+  "PVB_Disable"
+  {
+	"en"        "[{#95F3E3}B{#08C4CD}O{#27939D}T{#ffffff}] {blue}Player{orange} vs. {red}Bot{default} mode {community}disabled{default}!"
+  }
+  "PVB_Vote_Cooldown"
+  {
+	"#format"	"{1:.0f}"
+	"en"		"[{#95F3E3}B{#08C4CD}O{#27939D}T{#ffffff}] Voting for {darkred}PVB{default} is in cooldown for {darkorange}{1}{default} seconds."
+  }
+  "PVB_Vote_Failed"
+  {
+	"en"		"[{#95F3E3}B{#08C4CD}O{#27939D}T{#ffffff}] {blue}Player{orange} vs. {red}Bot{default} mode vote {red}failed{default}."
 }}
