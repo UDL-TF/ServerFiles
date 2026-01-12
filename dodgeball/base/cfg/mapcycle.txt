@@ -1,12 +1,4 @@
-tfdb_box_space_a6
-tfdb_octagon_odb_a1
-tfdb_rocketbucks_v2
-tfdb_spacebox_a2
-tfdb_spacetube_a2_fix
-tfdb_box_night_a8
-tfdb_box_evening
-tfdb_beandevil_a3
-tfdb_box_sides_a3
-tfdb_orbit-v10
-tfbd_gov_spacedodgeball
-tfdb_hexagon_a1
+tfdb_box_space_udl_a7
+tfdb_octagon_udl_v4
+tfdb_rocketbucks_udl_v6
+tfdb_spacebox_udl_a4
