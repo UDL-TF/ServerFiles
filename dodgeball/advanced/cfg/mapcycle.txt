@@ -5,6 +5,6 @@ tfdb_spacebox_a2
 tfdb_spacetube_a2_fix
 tfdb_box_night_a8
 tfdb_box_evening
-tfdb_beandevil_a3
+tfdb_beandevil_a4
 tfdb_box_sides_a3
 tfdb_hexagon_a1
