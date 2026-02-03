@@ -4,3 +4,6 @@ tfdb_rocketbucks_udl_v6
 tfdb_spacebox_udl_a4
 tfdb_pingpong_c7
 tfdb_beandevil_a4
+tfdb_box_sides_a3
+tfdb_abyss_v4
+tfdb_desert_madness_a9
