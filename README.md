@@ -253,3 +253,4 @@ See [LICENSE](LICENSE) file for details.
 - [Connect](https://github.com/asherkin/connect) - Connection management extension
 - [WebCon & Conplex](https://github.com/asherkin/webcon) - Conplex and WebCon extension for web-based server control
 - [JSON Extenstion](https://github.com/ProjectSky/sm-ext-json) - Used for more complex JSON. But for more native only we use https://github.com/clugg/sm-json
+- [Websocket](https://github.com/ProjectSky/sm-ext-websocket) - Used for websocket support.
