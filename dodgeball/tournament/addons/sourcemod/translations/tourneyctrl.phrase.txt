@@ -1,0 +1,53 @@
+"Phrases"
+{
+  "tc_set_usage"
+  {
+    "#format" "{1:s}"
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Usage: !tc_set{1} <steamid>"
+  }
+
+  "tc_set_success"
+  {
+    "#format" "{1:s},{2:s}"
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Set {1} to {2}"
+  }
+
+  "tc_already_recording"
+  {
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Already recording a demo"
+  }
+
+  "tc_started_recording"
+  {
+    "#format"   "{1:s}"
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Started recording a demo for {1}"
+  }
+
+  "tc_not_recording"
+  {
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Not recording a demo"
+  }
+
+  "tc_stopped_recording"
+  {
+    "#format"   "{1:s}"
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Stopped recording a demo for {1}"
+  }
+
+  "tc_gameover"
+  {
+    "#format"   "{1:s}"
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Team {1} won the game! Scores has been sent and updated. Thanks for playing!"
+  }
+
+  "tc_roundstart"
+  {
+    "#format"   "{1:s},{2:s},{3:i}"
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] {1} VS {2}, best out of {3} wins the game!"
+  }
+
+  "tc_readyup"
+  {
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] If the game doesn't start when all teams are ready, unready and ready up again."
+  }
+}
