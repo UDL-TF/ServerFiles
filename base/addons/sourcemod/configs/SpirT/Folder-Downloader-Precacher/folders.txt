@@ -1,4 +1,0 @@
-models
-sound
-particles
-materials
