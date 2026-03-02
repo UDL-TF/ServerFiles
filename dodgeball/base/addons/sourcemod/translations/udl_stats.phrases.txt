@@ -1,0 +1,127 @@
+"Phrases"
+{
+  "Udlstats Reconnect"
+  {
+    "en"  "Reconnecting to stats API..."
+  }
+
+  "Udlstats Reload"
+  {
+    "en"  "Reloading UDL stats configuration..."
+  }
+
+  "Udlstats Debug Enabled"
+  {
+    "en"  "Debug mode enabled."
+  }
+
+  "Udlstats Debug Disabled"
+  {
+    "en"  "Debug mode disabled."
+  }
+
+  "Udlstats Ingame Admin Only"
+  {
+    "en"  "This command can only be used by an in-game admin."
+  }
+
+  "Udlstats SeeLive Enabled"
+  {
+    "en"  "Live event console output enabled."
+  }
+
+  "Udlstats SeeLive Disabled"
+  {
+    "en"  "Live event console output disabled."
+  }
+
+  "Udlstats SeeLive Console Notice"
+  {
+    "en"  "Live UDL event logs are now printing to your console."
+  }
+
+  "Udlstats Ingame Only"
+  {
+    "en"  "This command can only be used in-game."
+  }
+
+  "Udlstats Notifications Enabled"
+  {
+    "en"  "Personal stats notifications enabled."
+  }
+
+  "Udlstats Notifications Disabled"
+  {
+    "en"  "Personal stats notifications disabled."
+  }
+
+  "Udlstats Status Header"
+  {
+    "en"  "=== UDL Stats Status ==="
+  }
+
+  "Udlstats Status Version"
+  {
+    "en"  "Version: {1}"
+  }
+
+  "Udlstats Status Server"
+  {
+    "en"  "Server: {1}"
+  }
+
+  "Udlstats Status Connection"
+  {
+    "en"  "Connection: {1}"
+  }
+
+  "Udlstats Status Server Id"
+  {
+    "en"  "Server ID: {1}"
+  }
+
+  "Udlstats Status Tfdb Available"
+  {
+    "en"  "TFDB: Available"
+  }
+
+  "Udlstats Status Tfdb Missing"
+  {
+    "en"  "TFDB: Not Found"
+  }
+
+  "Udlstats Status Tracking Enabled"
+  {
+    "en"  "Tracking: Enabled"
+  }
+
+  "Udlstats Status Tracking Disabled"
+  {
+    "en"  "Tracking: Disabled"
+  }
+
+  "Udlstats Status Notifications Enabled"
+  {
+    "en"  "Notifications: Enabled"
+  }
+
+  "Udlstats Status Notifications Disabled"
+  {
+    "en"  "Notifications: Disabled"
+  }
+
+  "Udlstats Status Debug On"
+  {
+    "en"  "Debug: On"
+  }
+
+  "Udlstats Status Debug Off"
+  {
+    "en"  "Debug: Off"
+  }
+
+  "Udlstats Status Next Reconnect"
+  {
+    "en"  "Next reconnect in: {1} seconds"
+  }
+}
