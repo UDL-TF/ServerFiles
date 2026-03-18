@@ -12,9 +12,14 @@
     "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Set {1} to {2}"
   }
 
+  "tc_recording_disabled"
+  {
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Recording is disabled!"
+  }
+
   "tc_already_recording"
   {
-    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Already recording a demo"
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Already recording a demo."
   }
 
   "tc_started_recording"
@@ -49,5 +54,15 @@
   "tc_readyup"
   {
     "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] If the game doesn't start when all teams are ready, unready and ready up again."
+  }
+
+  "tc_reset_success"
+  {
+    "en"  "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] Assigned players have been reset!"
+  }
+
+  "tc_reset_blocked"
+  {
+    "en" "[{#95F3E3}U{#08C4CD}D{#27939D}L{#ffffff}] There are no players assigned to be cleared!"
   }
 }
