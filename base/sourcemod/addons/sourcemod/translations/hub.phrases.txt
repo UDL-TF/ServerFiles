@@ -19,6 +19,11 @@
   {
     "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You do not have enough credits to do that."
   }
+  "Hub_Credits_Coinflip_Cooldown"
+  {
+    "#format"  "{1:i}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You must wait {1} more second(s) before using coinflip again."
+  }
   "Hub_Credits_Coinflip_Win"
   {
     "#format"  "{1:i},{2:s}"
@@ -81,6 +86,10 @@
   "Hub_Menu_Inventory"
   {
     "en"  "Inventory"
+  }
+  "Hub_Menu_Daily"
+  {
+    "en"  "Daily Reward"
   }
   "Hub_Preference_Disabled"
   {
@@ -482,5 +491,23 @@
   {
     "#format"  "{1:i}"
     "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Nobody answered the math quiz in time. The answer was {#27939D}{1}{#ffffff}."
+  }
+
+  // ==================== Daily Reward ====================
+
+  "Hub_Daily_Claimed"
+  {
+    "#format"  "{1:i},{2:i}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You claimed {#27939D}{1}{#ffffff} daily credits! (Day {#27939D}{2}{#ffffff} streak)"
+  }
+  "Hub_Daily_Claimed_Streak"
+  {
+    "#format"  "{1:i},{2:i},{3:i}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You claimed {#27939D}{1}{#ffffff} daily credits! ({#FFCC00}+{3} streak bonus{#ffffff}, Day {#27939D}{2}{#ffffff} streak)"
+  }
+  "Hub_Daily_Already_Claimed"
+  {
+    "#format"  "{1:i},{2:i}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You already claimed your daily reward. Come back in {#27939D}{1}h {2}m{#ffffff}."
   }
 }
