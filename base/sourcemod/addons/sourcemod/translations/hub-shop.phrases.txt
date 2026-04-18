@@ -1,0 +1,31 @@
+"Phrases"
+{
+  "Hub_Shop_Loading"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Shop is still loading, please try again in a moment."
+  }
+  "Hub_You_Already_Own_This_Item"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You already own \"{1}\"."
+  }
+  "Hub_You_Dont_Have_Enough_Credits_To_Buy_This"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You don't have enough credits to buy \"{1}\"."
+  }
+  "Hub_Successfully_Bought_Item"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Successfully bought \"{1}\"."
+  }
+  "Hub_Shop_Confirm_Buy"
+  {
+    "#format"  "{1:s},{2:i}"
+    "en"  "Are you sure you want to buy \"{2}\" for {1} credits."
+  }
+  "Hub_Shop_Purchase_Failed"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Purchase failed! Please try again later."
+  }
+}

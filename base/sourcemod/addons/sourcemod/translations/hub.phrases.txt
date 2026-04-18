@@ -1,0 +1,486 @@
+"Phrases"
+{
+  // Core stuff
+  "Hub_Core_Something_Went_Wrong"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Something went wrong."
+  }
+  // CREDITS - HUB
+  "Hub_Player_Credits"
+  {
+    "#format"  "{1:i},{2:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] {2} has {1} credits."
+  }
+  "Hub_Credits_Coinflip_Usage"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Usage: !coinflip <amount>"
+  }
+  "Hub_Credits_Coinflip_Not_Enough_Credits"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You do not have enough credits to do that."
+  }
+  "Hub_Credits_Coinflip_Win"
+  {
+    "#format"  "{1:i},{2:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] {2} won {1} credits."
+  }
+  "Hub_Credits_Coinflip_Lose"
+  {
+    "#format"  "{1:i},{2:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] {2} lost {1} credits."
+  }
+  "Hub_Player_Recieve_Credits"
+  {
+    "#format"  "{1:i}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You have recieved {1} credits."
+  }
+  "Hub_Credits_Earned_Points_Killed"
+  {
+    "#format"  "{1:i},{2:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You earned {1} credits for killing {2}."
+  }
+  "Hub_Credits_Earned_Points_Died"
+  {
+    "#format"  "{1:i},{2:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You lost {1} credits for dying to {2}."
+  }
+  "Hub_Credits_Kill_Reward_Message_Enabled"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Kill reward message enabled."
+  }
+  "Hub_Credits_Kill_Reward_Message_Disabled"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Kill reward message disabled."
+  }
+  "Hub_Credits_Recieved_Message_Enabled"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Recieved credits message enabled."
+  }
+  "Hub_Credits_Recieved_Message_Disabled"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Recieved credits message disabled."
+  }
+  "Hub_Shop_Title"
+  {
+    "#format"  "{1:i}"
+    "en"  "Shop | {1} credits"
+  }
+  // Hub menus
+  "Hub_Menu_Title"
+  {
+    "en"  "Hub Menu"
+  }
+  "Hub_Menu_Shop"
+  {
+    "en"  "Shop"
+  }
+  "Hub_Menu_Preferences"
+  {
+    "en"  "Preferences"
+  }
+  "Hub_Menu_Inventory"
+  {
+    "en"  "Inventory"
+  }
+  "Hub_Preference_Disabled"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Preference {#27939D}{1}{#ffffff} is now disabled."
+  }
+  "Hub_Preference_Enabled"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Preference {#27939D}{1}{#ffffff} is now enabled."
+  }
+  // Preferences
+  "trail_hiding"
+  {
+    "en"  "Hide Trails"
+  }
+  "spawn_particle_hiding"
+  {
+    "en"  "Hide Spawn Particles"
+  }
+  "disabled_credit_kill_reward_message"
+  {
+    "en"  "Disable Kill Reward Message"
+  }
+  "disabled_credit_received_message"
+  {
+    "en"  "Disable Recieve Credits Message"
+  }
+
+  // Cosmetics System
+  "Hub_Menu_Cosmetics"
+  {
+    "en"  "Cosmetics"
+  }
+
+  // Tags
+  "Hub_Cosmetics_Tags"
+  {
+    "en"  "Tags"
+  }
+  "Hub_Cosmetics_Tags_Title"
+  {
+    "en"  "Select a Tag"
+  }
+  "Hub_Cosmetics_Tags_Current"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Current tag: {#27939D}{1}"
+  }
+  "Hub_Cosmetics_Tags_Cleared"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your tag has been cleared."
+  }
+  "Hub_Cosmetics_Tags_Selected"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You selected the {#27939D}{1}{#ffffff} tag."
+  }
+  "Hub_Cosmetics_Tags_Not_Owned"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You do not own the {#27939D}{1}{#ffffff} tag."
+  }
+  "Hub_Tags_Custom_Not_Owned"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You need the [Custom Tag] item to use custom tags."
+  }
+  "Hub_Tags_Custom_Usage"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Usage: !customtag <text> (max 24 chars)."
+  }
+  "Hub_Tags_Custom_Color_Usage"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Usage: !customtagcolor <#RRGGBB|team|green|olive>."
+  }
+  "Hub_Tags_Custom_Too_Long"
+  {
+    "#format"  "{1:i}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Custom tag is too long. Max length is {1}."
+  }
+  "Hub_Tags_Custom_Invalid"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Custom tag contains invalid characters."
+  }
+  "Hub_Tags_Custom_Set"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Custom tag set to {#27939D}{1}{#ffffff}."
+  }
+  "Hub_Tags_Custom_Color_Set"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Custom tag color updated."
+  }
+
+  // Footprints
+  "Hub_Cosmetics_Footprints"
+  {
+    "en"  "Footprints"
+  }
+  "Hub_Cosmetics_Footprints_Title"
+  {
+    "en"  "Select Footprints"
+  }
+  "Hub_Cosmetics_Footprints_Current"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Current footprints: {#27939D}{1}"
+  }
+  "Hub_Cosmetics_Footprints_Cleared"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your footprints have been cleared."
+  }
+  "Hub_Cosmetics_Footprints_Selected"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You selected {#27939D}{1}{#ffffff} footprints."
+  }
+  "Hub_Cosmetics_Footprints_Not_Owned"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You do not own the {#27939D}{1}{#ffffff} footprints."
+  }
+
+  // Spawn Particles
+  "Hub_Cosmetics_SpawnParticles"
+  {
+    "en"  "Spawn Particles"
+  }
+  "Hub_Cosmetics_SpawnParticles_Title"
+  {
+    "en"  "Select Spawn Particle"
+  }
+  "Hub_Cosmetics_SpawnParticles_Current"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Current spawn particle: {#27939D}{1}"
+  }
+  "Hub_Cosmetics_SpawnParticles_Cleared"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your spawn particle has been cleared."
+  }
+  "Hub_Cosmetics_SpawnParticles_Selected"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You selected the {#27939D}{1}{#ffffff} spawn particle."
+  }
+  "Hub_Cosmetics_SpawnParticles_Not_Owned"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You do not own the {#27939D}{1}{#ffffff} spawn particle."
+  }
+
+  // Trails
+  "Hub_Cosmetics_Trails"
+  {
+    "en"  "Trails"
+  }
+  "Hub_Cosmetics_Trails_Title"
+  {
+    "en"  "Select a Trail"
+  }
+  "Hub_Cosmetics_Trails_Current"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Current trail: {#27939D}{1}"
+  }
+  "Hub_Cosmetics_Trails_Cleared"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your trail has been cleared."
+  }
+  "Hub_Cosmetics_Trails_Selected"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You selected the {#27939D}{1}{#ffffff} trail."
+  }
+  "Hub_Cosmetics_Trails_Not_Owned"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You do not own the {#27939D}{1}{#ffffff} trail."
+  }
+  "Hub_Cosmetics_Trails_Hidden"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Trails are now {#27939D}hidden{#ffffff}."
+  }
+  "Hub_Cosmetics_Trails_Visible"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Trails are now {#27939D}visible{#ffffff}."
+  }
+
+  // Chat Colors
+  "Hub_Cosmetics_ChatColors"
+  {
+    "en"  "Chat Colors"
+  }
+
+  // Generic cosmetics
+  "Hub_Cosmetics_None"
+  {
+    "en"  "[None]"
+  }
+  "Hub_Cosmetics_Owned"
+  {
+    "en"  "[Owned]"
+  }
+  "Hub_Cosmetics_Not_Owned"
+  {
+    "en"  "[Not Owned]"
+  }
+  "Hub_Cosmetics_Equipped"
+  {
+    "en"  "Equipped"
+  }
+
+  // Inventory
+  "Hub_Inventory_Item_Equipped"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You have equipped {#27939D}{1}{#ffffff}."
+  }
+  "Hub_Inventory_Item_Unequipped"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You have unequipped {#27939D}{1}{#ffffff}."
+  }
+  "Hub_Inventory_Item_Sold"
+  {
+    "#format"  "{1:s},{2:i}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You sold {#27939D}{1}{#ffffff} for {2} credits."
+  }
+  "Hub_Inventory_Item_Not_Sellable"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] {#27939D}{1}{#ffffff} cannot be sold."
+  }
+  "Hub_Inventory_Item_Not_Owned"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You do not own {#27939D}{1}{#ffffff}."
+  }
+  "Hub_Inventory_Item_Sell_Failed"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Failed to sell item. Please try again."
+  }
+
+  // Shop
+  "Hub_Shop_Purchase_Failed"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Purchase failed. Please try again."
+  }
+  
+  // Trails disabled message
+  "Hub_Cosmetics_Trails_Disabled"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your trail has been disabled."
+  }
+
+  // ==================== Chat System ====================
+  
+  // Main Chat Menu
+  "Hub_Chat_MenuTitle"
+  {
+    "en"  "Chat Settings"
+  }
+  "Hub_Chat_TagSettings"
+  {
+    "en"  "Tag Settings"
+  }
+  "Hub_Chat_NameColor"
+  {
+    "en"  "Name Color"
+  }
+  "Hub_Chat_ChatColor"
+  {
+    "en"  "Chat Color"
+  }
+  "Hub_Chat_ResetAll"
+  {
+    "en"  "Reset All to Defaults"
+  }
+  "Hub_Chat_AllReset"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] All chat colors have been reset to defaults."
+  }
+
+  // Tag Settings Menu
+  "Hub_Chat_TagSettingsTitle"
+  {
+    "en"  "Tag Settings"
+  }
+  "Hub_Chat_TagVisibility"
+  {
+    "en"  "Tag Visibility"
+  }
+  "Hub_Chat_SelectTag"
+  {
+    "en"  "Select Tag"
+  }
+  "Hub_Chat_TagColor"
+  {
+    "en"  "Tag Color"
+  }
+  "Hub_Chat_ResetTagDefault"
+  {
+    "en"  "Reset Tag to Default"
+  }
+  "Hub_Chat_TagEnabled"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your tag is now {#27939D}visible{#ffffff}."
+  }
+  "Hub_Chat_TagDisabled"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your tag is now {#27939D}hidden{#ffffff}."
+  }
+  "Hub_Chat_TagReset"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your tag has been reset to default."
+  }
+
+  // Tag Color Menu
+  "Hub_Chat_TagColorTitle"
+  {
+    "en"  "Select Tag Color"
+  }
+  "Hub_Chat_TagColorReset"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your tag color has been reset to default."
+  }
+  "Hub_Chat_TagColorSet"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your tag color is now {#27939D}{1}{#ffffff}."
+  }
+
+  // Name Color Menu
+  "Hub_Chat_NameColorTitle"
+  {
+    "en"  "Select Name Color"
+  }
+  "Hub_Chat_TeamColor"
+  {
+    "en"  "Team Color (Default)"
+  }
+  "Hub_Chat_ResetDefault"
+  {
+    "en"  "Reset to Default"
+  }
+  "Hub_Chat_NameColorReset"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your name color has been reset to default."
+  }
+  "Hub_Chat_NameColorSet"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your name color is now {#27939D}{1}{#ffffff}."
+  }
+
+  // Chat Color Menu
+  "Hub_Chat_ChatColorTitle"
+  {
+    "en"  "Select Chat Color"
+  }
+  "Hub_Chat_NoColor"
+  {
+    "en"  "No Color (Default)"
+  }
+  "Hub_Chat_ChatColorReset"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your chat color has been reset to default."
+  }
+  "Hub_Chat_ChatColorSet"
+  {
+    "#format"  "{1:s}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Your chat color is now {#27939D}{1}{#ffffff}."
+  }
+  "Hub_Chat_ColorNotOwned"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] You do not own this color. Purchase it from the shop first!"
+  }
+
+  // General Chat Messages
+  "Hub_Chat_InvalidColor"
+  {
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Invalid color format. Use: team, green, olive, or #RRGGBB"
+  }
+
+  // ==================== Math Quiz ====================
+
+  "Hub_MathQuiz_Question"
+  {
+    "#format"  "{1:s},{2:i},{3:i}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] {#FFCC00}Math Quiz!{#ffffff} What is {#27939D}{1}{#ffffff}? | Bounty: {#27939D}{2}{#ffffff} credits | Type your answer in chat within {#27939D}{3}{#ffffff}s!"
+  }
+  "Hub_MathQuiz_Winner"
+  {
+    "#format"  "{1:s},{2:i}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] {#27939D}{1}{#ffffff} answered the math quiz correctly and won {#27939D}{2}{#ffffff} credits!"
+  }
+  "Hub_MathQuiz_No_Winner"
+  {
+    "#format"  "{1:i}"
+    "en"  "[{#95F3E3}H{#08C4CD}U{#27939D}B{#ffffff}] Nobody answered the math quiz in time. The answer was {#27939D}{1}{#ffffff}."
+  }
+}
