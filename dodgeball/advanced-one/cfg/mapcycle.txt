@@ -2,3 +2,6 @@ tfdb_box_space_udl_a7
 tfdb_octagon_udl_v4
 tfdb_rocketbucks_udl_v6
 tfdb_spacebox_udl_a4
+tfdb_wii_sports_tennis_nt
+tfdb_abyss_v4
+tfdb_beandevil_a4
